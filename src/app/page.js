@@ -1,9 +1,11 @@
+"use client";
+import { useState } from "react";
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 
 const faqData = [
@@ -40,6 +42,15 @@ const faqData = [
 ];
 
 export default function FAQ() {
+  const [openItems, setOpenItems] = useState({});
+
+  const toggleItem = (id) => {
+    setOpenItems((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
+
   return (
     <div className="min-h-screen bg-[#EFEDF4] px-3 font-lexend">
       <div className="max-w-md mx-auto space-y-6">
@@ -52,10 +63,10 @@ export default function FAQ() {
           }}
         >
           {/* Top-right FAQ Icon */}
-          <div className="absolute top-8 right-4 w-14 h-14">
+          <div className="absolute top-8 right-4 w-13 h-13">
             <Image
               src="/faq.png"
-              alt="FAQ Icon"
+              alt="Calculator Icon"
               fill
               className="object-contain"
               priority
@@ -71,29 +82,38 @@ export default function FAQ() {
           </p>
         </div>
 
-        {/* FAQ Accordion */}
+        {/* FAQ Collapsible */}
         <div className="space-y-4">
-          <Accordion type="single" collapsible className="w-full">
-            {faqData.map((faq) => (
-              <AccordionItem
-                key={faq.id}
-                value={faq.id}
-                className="rounded-2xl mb-4 overflow-hidden border-none drop-shadow-sm"
+          {faqData.map((faq) => (
+            <Collapsible
+              key={faq.id}
+              open={openItems[faq.id]}
+              onOpenChange={() => toggleItem(faq.id)}
+            >
+              <div
+                className="rounded-xl mb-4 overflow-hidden border-none drop-shadow-lg"
                 style={{
                   background: "linear-gradient(to right, #E3E3E3, #FFFFFF)",
                 }}
               >
-                <AccordionTrigger className="px-4 py-4 text-left hover:no-underline text-sm font-semibold text-[#323233] pr-4">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="px-4 pb-4">
+                <CollapsibleTrigger className="w-full px-3 py-3 text-left hover:bg-black/5 transition-colors duration-200 flex items-center justify-between">
+                  <span className="text-sm font-semibold text-[#323233] pr-4">
+                    {faq.question}
+                  </span>
+                  <ChevronDown
+                    className={`w-4 h-4 text-[#323233] transition-transform duration-200 flex-shrink-0 ${
+                      openItems[faq.id] ? "rotate-180" : ""
+                    }`}
+                  />
+                </CollapsibleTrigger>
+                <CollapsibleContent className="px-4 pb-4">
                   <p className="text-xs text-[#666666] leading-relaxed">
                     {faq.answer}
                   </p>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+                </CollapsibleContent>
+              </div>
+            </Collapsible>
+          ))}
         </div>
       </div>
     </div>
