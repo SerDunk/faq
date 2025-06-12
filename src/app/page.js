@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import Image from "next/image";
 
 const faqData = [
   {
@@ -51,8 +52,14 @@ export default function FAQ() {
           }}
         >
           {/* Top-right FAQ Icon */}
-          <div className="absolute top-8 right-4 w-14 h-14 bg-white/20 rounded-full flex items-center justify-center">
-            <span className="text-2xl">?</span>
+          <div className="absolute top-8 right-4 ">
+            <Image
+              src="/faq.png"
+              alt="FAQ Icon"
+              width={50}
+              height={50}
+              className="object-contain"
+            />
           </div>
 
           <h1 className="text-md font-lexend font-semibold mb-2 z-10 relative">
