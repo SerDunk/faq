@@ -3,8 +3,8 @@ import "./globals.css";
 import { lexend } from "../../public/fonts";
 
 export const metadata = {
-  title: "Financial Calculators",
-  description: "Interactive financial calculators for your planning needs",
+  title: "Frequently Asked Questions",
+  description: "FAQ for our users and customers",
 };
 
 export default function RootLayout({ children }) {

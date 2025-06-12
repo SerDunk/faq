@@ -3,6 +3,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --font-lexend: var(--font-lexend);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

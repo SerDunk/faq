@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import Image from "next/image";
 
 const faqData = [
   {
@@ -51,42 +52,16 @@ export default function FAQ() {
           }}
         >
           {/* Top-right FAQ Icon */}
-          <div className="absolute top-3 right-4 w-20 h-20">
-            <div className="w-full h-full flex items-center justify-center">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="text-white"
-              >
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                />
-                <path
-                  d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M12 17h.01"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
+          <div className="absolute top-6 right-4 w-18 h-18">
+            <Image
+              src="/faq.png"
+              alt="FAQ Icon"
+              fill
+              className="object-contain"
+              priority
+            />
           </div>
-
-          <h1 className="text-lg font-semibold mb-2 z-10 relative">
+          <h1 className="text-lg font-lexend font-semibold mb-2 z-10 relative">
             Frequently Asked Questions
           </h1>
           <p className="text-xs text-white z-10 w-50 relative">
