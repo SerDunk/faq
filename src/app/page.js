@@ -52,7 +52,7 @@ export default function FAQ() {
           }}
         >
           {/* Top-right FAQ Icon */}
-          <div className="absolute top-8 right-4 w-12 h-12">
+          <div className="absolute top-8 right-4 w-14 h-14">
             <Image
               src="/faq.png"
               alt="FAQ Icon"
@@ -61,6 +61,7 @@ export default function FAQ() {
               priority
             />
           </div>
+
           <h1 className="text-md font-lexend font-semibold mb-2 z-10 relative">
             Frequently Asked Questions
           </h1>
