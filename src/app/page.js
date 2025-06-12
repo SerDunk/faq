@@ -1,6 +1,9 @@
-"use client";
-import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const faqData = [
   {
@@ -36,12 +39,6 @@ const faqData = [
 ];
 
 export default function FAQ() {
-  const [openItem, setOpenItem] = useState(null);
-
-  const toggleItem = (id) => {
-    setOpenItem(openItem === id ? null : id);
-  };
-
   return (
     <div className="min-h-screen bg-[#EFEDF4] px-3 font-lexend">
       <div className="max-w-md mx-auto space-y-6">
@@ -67,45 +64,29 @@ export default function FAQ() {
           </p>
         </div>
 
-        {/* Custom Accordion */}
-        <div className="w-full space-y-4">
-          {faqData.map((faq) => (
-            <div
-              key={faq.id}
-              className="rounded-2xl mb-4 overflow-hidden border-none drop-shadow-xl"
-              style={{
-                background: "linear-gradient(to right, #E3E3E3, #FFFFFF)",
-              }}
-            >
-              {/* Accordion Trigger */}
-              <button
-                onClick={() => toggleItem(faq.id)}
-                className="w-full px-4 py-4 text-left hover:no-underline text-sm font-semibold text-[#323233] pr-4 flex items-center justify-between group"
+        {/* FAQ Accordion */}
+        <div className="space-y-4">
+          <Accordion type="single" collapsible className="w-full">
+            {faqData.map((faq) => (
+              <AccordionItem
+                key={faq.id}
+                value={faq.id}
+                className="rounded-2xl mb-4 overflow-hidden border-none shadow-xl"
+                style={{
+                  background: "linear-gradient(to right, #E3E3E3, #FFFFFF)",
+                }}
               >
-                <span className="flex-1">{faq.question}</span>
-                <ChevronDown
-                  className={`w-4 h-4 text-[#323233] transition-transform duration-200 flex-shrink-0 ml-2 ${
-                    openItem === faq.id ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-
-              {/* Accordion Content */}
-              <div
-                className={`overflow-hidden transition-all duration-200 ease-in-out ${
-                  openItem === faq.id
-                    ? "max-h-96 opacity-100"
-                    : "max-h-0 opacity-0"
-                }`}
-              >
-                <div className="px-4 pb-4">
+                <AccordionTrigger className="px-4 py-4 text-left hover:no-underline text-sm font-semibold text-[#323233] pr-4">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="px-4 pb-4">
                   <p className="text-xs text-[#666666] leading-relaxed">
                     {faq.answer}
                   </p>
-                </div>
-              </div>
-            </div>
-          ))}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </div>
     </div>
