@@ -77,7 +77,7 @@ export default function FAQ() {
               <AccordionItem
                 key={faq.id}
                 value={faq.id}
-                className="rounded-xl mb-4 overflow-hidden border-none drop-shadow-xl"
+                className="rounded-xl mb-4 overflow-hidden border-none drop-shadow-md"
                 style={{
                   background: "linear-gradient(to right, #E3E3E3, #FFFFFF)",
                 }}
