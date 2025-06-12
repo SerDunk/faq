@@ -1,12 +1,6 @@
 "use client";
 import { useState } from "react";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
 import { ChevronDown } from "lucide-react";
-import Image from "next/image";
 
 const faqData = [
   {
@@ -42,13 +36,10 @@ const faqData = [
 ];
 
 export default function FAQ() {
-  const [openItems, setOpenItems] = useState({});
+  const [openItem, setOpenItem] = useState(null);
 
   const toggleItem = (id) => {
-    setOpenItems((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
+    setOpenItem(openItem === id ? null : id);
   };
 
   return (
@@ -63,14 +54,8 @@ export default function FAQ() {
           }}
         >
           {/* Top-right FAQ Icon */}
-          <div className="absolute top-8 right-4 w-13 h-13">
-            <Image
-              src="/faq.png"
-              alt="Calculator Icon"
-              fill
-              className="object-contain"
-              priority
-            />
+          <div className="absolute top-8 right-4 w-14 h-14 bg-white/20 rounded-full flex items-center justify-center">
+            <span className="text-2xl">?</span>
           </div>
 
           <h1 className="text-md font-lexend font-semibold mb-2 z-10 relative">
@@ -82,37 +67,44 @@ export default function FAQ() {
           </p>
         </div>
 
-        {/* FAQ Collapsible */}
-        <div className="space-y-4">
+        {/* Custom Accordion */}
+        <div className="w-full space-y-4">
           {faqData.map((faq) => (
-            <Collapsible
+            <div
               key={faq.id}
-              open={openItems[faq.id]}
-              onOpenChange={() => toggleItem(faq.id)}
+              className="rounded-2xl mb-4 overflow-hidden border-none drop-shadow-xl"
+              style={{
+                background: "linear-gradient(to right, #E3E3E3, #FFFFFF)",
+              }}
             >
-              <div
-                className="rounded-xl mb-4 overflow-hidden border-none drop-shadow-lg"
-                style={{
-                  background: "linear-gradient(to right, #E3E3E3, #FFFFFF)",
-                }}
+              {/* Accordion Trigger */}
+              <button
+                onClick={() => toggleItem(faq.id)}
+                className="w-full px-4 py-4 text-left hover:no-underline text-sm font-semibold text-[#323233] pr-4 flex items-center justify-between group"
               >
-                <CollapsibleTrigger className="w-full px-3 py-3 text-left hover:bg-black/5 transition-colors duration-200 flex items-center justify-between">
-                  <span className="text-sm font-semibold text-[#323233] pr-4">
-                    {faq.question}
-                  </span>
-                  <ChevronDown
-                    className={`w-4 h-4 text-[#323233] transition-transform duration-200 flex-shrink-0 ${
-                      openItems[faq.id] ? "rotate-180" : ""
-                    }`}
-                  />
-                </CollapsibleTrigger>
-                <CollapsibleContent className="px-4 pb-4">
+                <span className="flex-1">{faq.question}</span>
+                <ChevronDown
+                  className={`w-4 h-4 text-[#323233] transition-transform duration-200 flex-shrink-0 ml-2 ${
+                    openItem === faq.id ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+
+              {/* Accordion Content */}
+              <div
+                className={`overflow-hidden transition-all duration-200 ease-in-out ${
+                  openItem === faq.id
+                    ? "max-h-96 opacity-100"
+                    : "max-h-0 opacity-0"
+                }`}
+              >
+                <div className="px-4 pb-4">
                   <p className="text-xs text-[#666666] leading-relaxed">
                     {faq.answer}
                   </p>
-                </CollapsibleContent>
+                </div>
               </div>
-            </Collapsible>
+            </div>
           ))}
         </div>
       </div>
