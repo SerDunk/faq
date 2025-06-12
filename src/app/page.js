@@ -83,10 +83,8 @@ export default function FAQ() {
                   background: "linear-gradient(to right, #E3E3E3, #FFFFFF)",
                 }}
               >
-                <AccordionTrigger className="px-4 py-4 text-left hover:no-underline">
-                  <h3 className="text-sm font-semibold text-[#323233] pr-4">
-                    {faq.question}
-                  </h3>
+                <AccordionTrigger className="px-4 py-4 text-left hover:no-underline text-sm font-semibold text-[#323233] pr-4">
+                  {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="px-4 pb-4">
                   <p className="text-xs text-[#666666] leading-relaxed">
