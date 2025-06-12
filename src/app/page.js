@@ -52,7 +52,7 @@ export default function FAQ() {
           }}
         >
           {/* Top-right FAQ Icon */}
-          <div className="absolute top-6 right-4 w-18 h-18">
+          <div className="absolute top-8 right-4 w-12 h-12">
             <Image
               src="/faq.png"
               alt="FAQ Icon"
@@ -61,7 +61,7 @@ export default function FAQ() {
               priority
             />
           </div>
-          <h1 className="text-lg font-lexend font-semibold mb-2 z-10 relative">
+          <h1 className="text-md font-lexend font-semibold mb-2 z-10 relative">
             Frequently Asked Questions
           </h1>
           <p className="text-xs text-white z-10 w-50 relative">
@@ -77,7 +77,7 @@ export default function FAQ() {
               <AccordionItem
                 key={faq.id}
                 value={faq.id}
-                className="rounded-xl mb-4 overflow-hidden drop-shadow-xl border-none"
+                className="rounded-xl mb-4 overflow-hidden border-none drop-shadow-xl"
                 style={{
                   background: "linear-gradient(to right, #E3E3E3, #FFFFFF)",
                 }}
@@ -95,31 +95,6 @@ export default function FAQ() {
               </AccordionItem>
             ))}
           </Accordion>
-        </div>
-
-        {/* Contact Card */}
-        <div
-          className="rounded-xl px-4 py-4 drop-shadow-xl"
-          style={{
-            background: "linear-gradient(to right, #E3E3E3, #FFFFFF)",
-          }}
-        >
-          <h3 className="text-sm font-semibold text-[#323233] mb-2">
-            Still have questions?
-          </h3>
-          <p className="text-xs text-[#666666] mb-3">
-            Can't find the answer you're looking for? Please reach out to our
-            support team.
-          </p>
-          <button
-            style={{
-              background:
-                "radial-gradient(ellipse 113px 357px at center, #8362D1 -60%, #192226 130%)",
-            }}
-            className="text-white text-xs px-4 py-2 rounded-lg hover:bg-[#7555C1] transition-colors duration-200"
-          >
-            Contact Support
-          </button>
         </div>
       </div>
     </div>
