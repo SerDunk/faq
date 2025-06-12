@@ -1,103 +1,152 @@
-import Image from "next/image";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
-export default function Home() {
+const faqData = [
+  {
+    id: "faq-1",
+    question: "How is my personal data protected when using the calculators?",
+    answer:
+      "We take data security seriously and implement multiple layers of protection. All data is encrypted both during transmission (using SSL connections) and when stored on our servers. Access to your information is strictly limited to authorized personnel only, and we conduct regular security audits to ensure our systems remain secure. Additionally, we have comprehensive incident management procedures in place to quickly address any potential security issues.",
+  },
+  {
+    id: "faq-2",
+    question: "What information do you collect when I use the calculators?",
+    answer:
+      "We collect information through three main methods: directly from your input when using our calculators, automatically through cookies and analytics to improve your experience, and occasionally from third parties such as business partners or service providers. We only collect data that is necessary to provide our services effectively and enhance your user experience.",
+  },
+  {
+    id: "faq-3",
+    question: "Why do you need my data and how is it used?",
+    answer:
+      "We use your data for several important purposes: to provide our calculator services, fulfill any contractual obligations from purchases or subscriptions, enable essential site features like user accounts and personalized analysis, communicate important updates or support information, and process any payments securely. All data usage is directly related to improving and delivering our services to you.",
+  },
+  {
+    id: "faq-4",
+    question: "What is the legal basis for processing my personal information?",
+    answer:
+      "We process your personal data based on four main legal grounds: your explicit consent for specific uses, contractual necessity to provide our services, legal obligations we must comply with as a business, and legitimate interests in improving our services while respecting your privacy rights. We always ensure we have a valid legal basis before processing any personal information.",
+  },
+  {
+    id: "faq-5",
+    question: "Can I control what data you collect and how it's used?",
+    answer:
+      "Absolutely! You have full control over your data. You can review, update, or delete your personal information at any time. You can also opt out of non-essential data collection like analytics cookies through your browser settings. If you have any questions about your data or want to exercise your privacy rights, please contact our support team who will be happy to assist you.",
+  },
+];
+
+export default function FAQ() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-[#EFEDF4] px-3 font-lexend">
+      <div className="max-w-md mx-auto space-y-6">
+        {/* Header Card */}
+        <div
+          className="rounded-xl px-6 py-5 text-white relative overflow-hidden"
+          style={{
+            background:
+              "radial-gradient(ellipse 113px 357px at center, #8362D1 -60%, #192226 130%)",
+          }}
+        >
+          {/* Top-right FAQ Icon */}
+          <div className="absolute top-3 right-4 w-20 h-20">
+            <div className="w-full h-full flex items-center justify-center">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="text-white"
+              >
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                />
+                <path
+                  d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M12 17h.01"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          <h1 className="text-lg font-semibold mb-2 z-10 relative">
+            Frequently Asked Questions
+          </h1>
+          <p className="text-xs text-white z-10 w-50 relative">
+            Get answers to common questions about data security, privacy, and
+            how we protect your information.
+          </p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+
+        {/* FAQ Accordion */}
+        <div className="space-y-4">
+          <Accordion type="single" collapsible className="w-full">
+            {faqData.map((faq) => (
+              <AccordionItem
+                key={faq.id}
+                value={faq.id}
+                className="rounded-xl mb-4 overflow-hidden drop-shadow-xl border-none"
+                style={{
+                  background: "linear-gradient(to right, #E3E3E3, #FFFFFF)",
+                }}
+              >
+                <AccordionTrigger className="px-4 py-4 text-left hover:no-underline">
+                  <h3 className="text-sm font-semibold text-[#323233] pr-4">
+                    {faq.question}
+                  </h3>
+                </AccordionTrigger>
+                <AccordionContent className="px-4 pb-4">
+                  <p className="text-xs text-[#666666] leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+
+        {/* Contact Card */}
+        <div
+          className="rounded-xl px-4 py-4 drop-shadow-xl"
+          style={{
+            background: "linear-gradient(to right, #E3E3E3, #FFFFFF)",
+          }}
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <h3 className="text-sm font-semibold text-[#323233] mb-2">
+            Still have questions?
+          </h3>
+          <p className="text-xs text-[#666666] mb-3">
+            Can't find the answer you're looking for? Please reach out to our
+            support team.
+          </p>
+          <button
+            style={{
+              background:
+                "radial-gradient(ellipse 113px 357px at center, #8362D1 -60%, #192226 130%)",
+            }}
+            className="text-white text-xs px-4 py-2 rounded-lg hover:bg-[#7555C1] transition-colors duration-200"
+          >
+            Contact Support
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
