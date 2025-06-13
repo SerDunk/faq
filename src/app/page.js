@@ -41,7 +41,7 @@ const faqData = [
 
 export default function FAQ() {
   return (
-    <div className="min-h-screen bg-[#EFEDF4] px-3 font-lexend">
+    <div className="min-h-screen bg-[#EFEDF4] px-3 xs:px-0 font-lexend">
       <div className="max-w-md mx-auto space-y-6">
         {/* Header Card */}
         <div
@@ -65,7 +65,7 @@ export default function FAQ() {
           <h1 className="text-sm w-30 xs:w-40 sm:w-70 font-lexend font-semibold mb-2">
             Frequently Asked Questions
           </h1>
-          <p className="text-xs text-white w-30 xs:w-40 sm:w-70">
+          <p className="text-xs text-white w-40 xs:w-50 sm:w-70">
             Get answers to common questions about data security, privacy, and
             how we protect your information.
           </p>
