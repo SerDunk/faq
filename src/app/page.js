@@ -52,20 +52,20 @@ export default function FAQ() {
           }}
         >
           {/* Top-right FAQ Icon */}
-          <div className="absolute top-8 right-4 ">
+          <div className="absolute top-15 xs:top-10 sm:top-6 sm:right-12 right-4  ">
             <Image
               src="/faq.png"
               alt="FAQ Icon"
-              width={50}
-              height={50}
+              width={60}
+              height={60}
               className="object-contain"
             />
           </div>
 
-          <h1 className="text-md font-lexend font-semibold mb-2 z-10 relative">
+          <h1 className="text-sm w-30 xs:w-40 sm:w-70 font-lexend font-semibold mb-2">
             Frequently Asked Questions
           </h1>
-          <p className="text-xs text-white z-10 w-50 relative">
+          <p className="text-xs text-white w-30 xs:w-40 sm:w-70">
             Get answers to common questions about data security, privacy, and
             how we protect your information.
           </p>
