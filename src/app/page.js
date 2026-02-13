@@ -9,33 +9,64 @@ import Image from "next/image";
 const faqData = [
   {
     id: "faq-1",
-    question: "How is my personal data protected when using the calculators?",
+    question: "Can I use GoalSeek without linking my bank accounts?",
     answer:
-      "We take data security seriously and implement multiple layers of protection. All data is encrypted both during transmission (using SSL connections) and when stored on our servers. Access to your information is strictly limited to authorized personnel only, and we conduct regular security audits to ensure our systems remain secure. Additionally, we have comprehensive incident management procedures in place to quickly address any potential security issues.",
+      "Yes, you can still track your spending manually, access health checks, and use coaching features without linking your bank accounts. However, linking your accounts unlocks richer insights and provides a smoother, more personalized experience.",
   },
   {
     id: "faq-2",
-    question: "What information do you collect when I use the calculators?",
+    question: "How secure is my financial data?",
     answer:
-      "We collect information through three main methods: directly from your input when using our calculators, automatically through cookies and analytics to improve your experience, and occasionally from third parties such as business partners or service providers. We only collect data that is necessary to provide our services effectively and enhance your user experience.",
+      "We use bank-grade encryption and follow strict data privacy standards to ensure your financial information remains protected. Your data stays secure and fully under your control at all times.",
   },
   {
     id: "faq-3",
-    question: "Why do you need my data and how is it used?",
+    question: "What is Account Aggregator (AA), and is it safe?",
     answer:
-      "We use your data for several important purposes: to provide our calculator services, fulfill any contractual obligations from purchases or subscriptions, enable essential site features like user accounts and personalized analysis, communicate important updates or support information, and process any payments securely. All data usage is directly related to improving and delivering our services to you.",
+      "Account Aggregator (AA) is an RBI-regulated framework that allows you to securely connect your financial accounts with your explicit consent. GoalSeek uses this system to safely fetch your financial data. You remain in complete control, and your consent is required every time data is accessed.",
   },
   {
     id: "faq-4",
-    question: "What is the legal basis for processing my personal information?",
+    question: "Does GoalSeek sell or share my data with third parties?",
     answer:
-      "We process your personal data based on four main legal grounds: your explicit consent for specific uses, contractual necessity to provide our services, legal obligations we must comply with as a business, and legitimate interests in improving our services while respecting your privacy rights. We always ensure we have a valid legal basis before processing any personal information.",
+      "No, we never sell, rent, or share your personal data for marketing, advertising, or any third-party commercial purposes.",
   },
   {
     id: "faq-5",
-    question: "Can I control what data you collect and how it's used?",
+    question: "Can I switch between free and premium anytime?",
     answer:
-      "Absolutely! You have full control over your data. You can review, update, or delete your personal information at any time. You can also opt out of non-essential data collection like analytics cookies through your browser settings. If you have any questions about your data or want to exercise your privacy rights, please contact our support team who will be happy to assist you.",
+      "Yes, you can upgrade or downgrade your subscription at any time through the app settings.",
+  },
+  {
+    id: "faq-6",
+    question: "What happens to my data if my premium subscription expires?",
+    answer:
+      "If your premium subscription expires, you will continue to have access to your data and all free features. Premium insights and coaching sessions will pause until you renew your subscription.",
+  },
+  {
+    id: "faq-7",
+    question:
+      "Does GoalSeek share my personal data with my employer if I use a company-provided subscription?",
+    answer:
+      "No, your employer will never have access to your individual financial data. If your subscription is company-sponsored, employers only receive aggregated and anonymised reports, such as overall participation metrics. Individual user data is never shared.",
+  },
+  {
+    id: "faq-8",
+    question: "What happens if I stop using the app?",
+    answer:
+      "Your data remains securely stored and can be permanently deleted upon request. GoalSeek does not store or retain your data without your consent.",
+  },
+  {
+    id: "faq-9",
+    question: "What kind of financial guidance does GoalSeek provide?",
+    answer:
+      "You receive access to 1:1 coaching sessions with SEBI-registered financial advisors. Our advisors provide unbiased guidance and do not promote third-party products. They help you plan finances, reduce debt, improve savings, and build better financial habits based on your personal financial data and goals.",
+  },
+  {
+    id: "faq-10",
+    question: "Is GoalSeek a SEBI-registered investment advisor?",
+    answer:
+      "Yes, GoalSeek operates under SEBI RIA guidelines for financial advice. This ensures that all financial guidance provided is regulated, compliant, and unbiased.",
   },
 ];
 
